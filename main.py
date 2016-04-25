@@ -1,6 +1,8 @@
 import sys
+import os
 import time
 import cell
+import mRNAEvol
 
 preOrderTree = ["P0", "AB", "ABa", "ABal", "ABala", "ABalp", "ABar", "ABara", "ABarp", "ABp", "ABpl", "ABpla", "ABplp",
 "ABpr", "ABpra", "ABprp", "P", "EMS", "MS", "MSa", "MSp", "E", "Ea", "Ep", "P2", "C", "Ca", "Cp", "P3", "D", "P4"]
@@ -68,6 +70,51 @@ def buildTree():
 
 	return P0
 
+def addmRNADataToTree(root):
+	print "\n adding mRNA data to tree"
+
+	dirName = "export_data"
+
+	underscore = "_"
+	ext = ".csv"
+
+	for filename in os.listdir(dirName):
+		# extract the cells name from the filename
+		delineator = filename.index(underscore)
+		end = filename.index(ext)
+
+		parentCell = filename[0:delineator]
+		childCell = filename[delineator+1:end]
+
+		with open(dirName + "/" + filename) as ins:
+			for line in ins:
+				geneDataTokens = line.split(",")
+
+				p_value = float(geneDataTokens[1])
+				logCPM = float(geneDataTokens[2])
+				logFC = float(geneDataTokens[3])
+
+				c = findCell(root, parentCell)
+
+				if logFC > 0.: # the parent cell expresses this gene at a higher level than the child cell
+					y = 1
+				elif logFC < 0.: # the parent cell expresses this gene at a lower level than the child cell
+					y = 0
+
+
+def findCell(root, targetCellLineageName):
+	if root == None:
+		return 0
+
+	if root.getCellLineageName() == targetCellLineageName:
+		return root
+
+	c = findCell(root.getCellL(), targetCellLineageName)
+	if c != 0:
+		return c
+	else:
+		c = findCell(root.getCellR(), targetCellLineageName)
+
 
 if __name__ == '__main__':
 	t0 = time.clock()
@@ -75,7 +122,7 @@ if __name__ == '__main__':
 
 	P0_root = buildTree()
 
-	
+	addmRNADataToTree(P0_root)
 
 	print "\nprogram execution: {t} seconds".format(t=time.clock()-t0)
 	print "exiting"
