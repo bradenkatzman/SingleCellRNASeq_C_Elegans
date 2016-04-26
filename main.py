@@ -7,6 +7,10 @@ import mRNAEvol
 preOrderTree = ["P0", "AB", "ABa", "ABal", "ABala", "ABalp", "ABar", "ABara", "ABarp", "ABp", "ABpl", "ABpla", "ABplp",
 "ABpr", "ABpra", "ABprp", "P", "EMS", "MS", "MSa", "MSp", "E", "Ea", "Ep", "P2", "C", "Ca", "Cp", "P3", "D", "P4"]
 
+headerLine = "Parent Cell - Child Cell, Genes Increased, Genes Decreased"
+
+newline = "\n"
+
 def buildTree():
 	print "\nconstructing tree rooted at P0"
 
@@ -118,6 +122,9 @@ def addmRNADataToTree(root):
 	# sort the results
 	results.sort(key=lambda x: x[0])
 
+	# write to file
+	writeToFile(results)
+
 
 def findCellInOrder(root, targetCellLineageName):
 	if not root:
@@ -135,6 +142,26 @@ def findCellInOrder(root, targetCellLineageName):
 
 def writeToFile(results):
 	print "\n writing results to file"
+
+	resultsDirName = "Results"
+
+	filename = "mRNA_Evolution_Data.csv"
+
+	if not os.path.exists(resultsDirName):
+		os.makedirs(resultsDirName)
+
+	file = open(resultsDirName + "/" + filename, "w+")
+
+	file.write(headerLine)
+
+	size = len(results)
+	iterator = 0
+
+	while iterator < size:
+		if len(results[iterator]) == 3:
+			file.write(str(results[iterator][0]) + ", " + str(results[iterator][1]) + ", " + str(results[iterator][2]))
+			file.write(newline)
+		iterator += 1
 
 
 if __name__ == '__main__':
