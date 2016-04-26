@@ -73,6 +73,8 @@ def buildTree():
 def addmRNADataToTree(root):
 	print "\n adding mRNA data to tree"
 
+	results = []
+
 	dirName = "export_data"
 
 	underscore = "_"
@@ -86,7 +88,10 @@ def addmRNADataToTree(root):
 		parentCell = filename[0:delineator]
 		childCell = filename[delineator+1:end]
 
+		geneIncreaseCounter = 0
+		geneDecreaseCounter = 0
 		with open(dirName + "/" + filename) as ins:
+			
 			for line in ins:
 				geneDataTokens = line.split(",")
 
@@ -94,26 +99,42 @@ def addmRNADataToTree(root):
 				logCPM = float(geneDataTokens[2])
 				logFC = float(geneDataTokens[3])
 
-				c = findCell(root, parentCell)
+				c = findCellInOrder(root, parentCell)
 
-				if logFC > 0.: # the parent cell expresses this gene at a higher level than the child cell
-					y = 1
-				elif logFC < 0.: # the parent cell expresses this gene at a lower level than the child cell
-					y = 0
+				if c != None:
+					if logFC > 0.: # the parent cell expresses this gene at a higher level than the child cell
+						geneDecreaseCounter += 1
+					elif logFC < 0.: # the parent cell expresses this gene at a lower level than the child cell
+						geneIncreaseCounter += 1
+
+		# print the resultsrm 
+		print "{pc} - {cc}	{geneIncr}	{geneDecr}".format(pc=parentCell, cc=childCell, 
+			geneIncr=geneIncreaseCounter, geneDecr=geneDecreaseCounter)
+
+		result = [parentCell + " - " + childCell, geneIncreaseCounter, geneDecreaseCounter]
+		results.append(result)
+		
+
+	# sort the results
+	results.sort(key=lambda x: x[0])
 
 
-def findCell(root, targetCellLineageName):
-	if root == None:
-		return 0
+def findCellInOrder(root, targetCellLineageName):
+	if not root:
+		return None
 
-	if root.getCellLineageName() == targetCellLineageName:
+	result = findCellInOrder(root.getCellL(), targetCellLineageName)
+
+	if result is not None:
+		return result
+
+	if root.getCellLineageName().lower() == targetCellLineageName.lower():
 		return root
 
-	c = findCell(root.getCellL(), targetCellLineageName)
-	if c != 0:
-		return c
-	else:
-		c = findCell(root.getCellR(), targetCellLineageName)
+	return findCellInOrder(root.getCellR(), targetCellLineageName)
+
+def writeToFile(results):
+	print "\n writing results to file"
 
 
 if __name__ == '__main__':
