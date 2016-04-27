@@ -7,7 +7,8 @@ import mRNAEvol
 preOrderTree = ["P0", "AB", "ABa", "ABal", "ABala", "ABalp", "ABar", "ABara", "ABarp", "ABp", "ABpl", "ABpla", "ABplp",
 "ABpr", "ABpra", "ABprp", "P", "EMS", "MS", "MSa", "MSp", "E", "Ea", "Ep", "P2", "C", "Ca", "Cp", "P3", "D", "P4"]
 
-headerLine = "Parent Cell - Child Cell, Genes Increased, Genes Decreased"
+headerLine = "Parent Cell - Child Cell, Genes Increased, Genes Decreased, Difference (Incr - Decr)"
+headerLine2 = "Total Num Increases, Total Num Decreases"
 
 newline = "\n"
 
@@ -84,6 +85,10 @@ def addmRNADataToTree(root):
 	underscore = "_"
 	ext = ".csv"
 
+
+	totalNumIncreases = 0
+	totalNumDecreases = 0
+
 	for filename in os.listdir(dirName):
 		# extract the cells name from the filename
 		delineator = filename.index(underscore)
@@ -91,6 +96,8 @@ def addmRNADataToTree(root):
 
 		parentCell = filename[0:delineator]
 		childCell = filename[delineator+1:end]
+
+		
 
 		geneIncreaseCounter = 0
 		geneDecreaseCounter = 0
@@ -106,16 +113,24 @@ def addmRNADataToTree(root):
 				c = findCellInOrder(root, parentCell)
 
 				if c != None:
-					if logFC > 0.: # the parent cell expresses this gene at a higher level than the child cell
-						geneDecreaseCounter += 1
-					elif logFC < 0.: # the parent cell expresses this gene at a lower level than the child cell
-						geneIncreaseCounter += 1
+					if p_value <= 0.015: # manually set p-value
+						if logFC > 0.: # the parent cell expresses this gene at a higher level than the child cell
+							geneDecreaseCounter += 1
+						elif logFC < 0.: # the parent cell expresses this gene at a lower level than the child cell
+							geneIncreaseCounter += 1
 
-		# print the resultsrm 
-		print "{pc} - {cc}	{geneIncr}	{geneDecr}".format(pc=parentCell, cc=childCell, 
-			geneIncr=geneIncreaseCounter, geneDecr=geneDecreaseCounter)
+		# find the difference
+		diff = geneIncreaseCounter - geneDecreaseCounter
+		if diff < 0:
+			totalNumDecreases += 1
+		else:
+			totalNumIncreases += 1
 
-		result = [parentCell + " - " + childCell, geneIncreaseCounter, geneDecreaseCounter]
+		# print the results
+		print "{pc} - {cc}	{geneIncr}	{geneDecr}	{diff}".format(pc=parentCell, cc=childCell, 
+			geneIncr=geneIncreaseCounter, geneDecr=geneDecreaseCounter, diff=diff)
+
+		result = [parentCell + " - " + childCell, geneIncreaseCounter, geneDecreaseCounter, diff]
 		results.append(result)
 		
 
@@ -123,7 +138,7 @@ def addmRNADataToTree(root):
 	results.sort(key=lambda x: x[0])
 
 	# write to file
-	writeToFile(results)
+	writeToFile(results, totalNumIncreases, totalNumDecreases)
 
 
 def findCellInOrder(root, targetCellLineageName):
@@ -140,7 +155,7 @@ def findCellInOrder(root, targetCellLineageName):
 
 	return findCellInOrder(root.getCellR(), targetCellLineageName)
 
-def writeToFile(results):
+def writeToFile(results, totalNumIncreases, totalNumDecreases):
 	print "\n writing results to file"
 
 	resultsDirName = "Results"
@@ -158,10 +173,20 @@ def writeToFile(results):
 	iterator = 0
 
 	while iterator < size:
-		if len(results[iterator]) == 3:
-			file.write(str(results[iterator][0]) + ", " + str(results[iterator][1]) + ", " + str(results[iterator][2]))
+		if len(results[iterator]) == 4:
 			file.write(newline)
+			file.write(str(results[iterator][0]) + ", " + str(results[iterator][1]) + ", " + str(results[iterator][2]) + ", " + str(results[iterator][3]))
+			
 		iterator += 1
+
+	# write the global values to file
+	file.write(newline)
+	file.write(newline)
+
+	file.write(headerLine2)
+	file.write(newline)
+	file.write(str(totalNumIncreases) + ", " + str(totalNumDecreases))
+
 
 
 if __name__ == '__main__':
