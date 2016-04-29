@@ -5,6 +5,7 @@ import treeSearch
 import initRPKMs
 import cell
 import mRNAEvol
+import vennDiagram
 
 preOrderTree = ["P0", "AB", "ABa", "ABal", "ABala", "ABalp", "ABar", "ABara", "ABarp", "ABp", "ABpl", "ABpla", "ABplp",
 "ABpr", "ABpra", "ABprp", "P", "EMS", "MS", "MSa", "MSp", "E", "Ea", "Ep", "P2", "C", "Ca", "Cp", "P3", "D", "P4"]
@@ -13,10 +14,13 @@ headerLine = "Parent Cell - Child Cell, Gene Exp. Increased in Child, Gene Exp. 
 headerLine2 = "Total Num Increases, Total Num Decreases"
 
 newline = "\n"
+dash = "-"
+
+data = {}
 
 # parameters
 p = 0.0100000000
-medRPKM = 25
+medRPKMThreshold = 25
 logFCThreshold = 0.5
 CPM = -1
 
@@ -91,7 +95,7 @@ def gatherRPKMData(root):
 
 
 def addmRNADataToTree(root):
-	print "\n adding mRNA data to tree"
+	print "\nadding mRNA data to tree"
 
 	results = []
 
@@ -115,6 +119,7 @@ def addmRNADataToTree(root):
 		geneIncreaseCounter = 0
 		geneDecreaseCounter = 0
 		with open(dirName + "/" + filename) as ins:
+			dataEntry = {}
 			
 			for line in ins:
 				geneDataTokens = line.split(",")
@@ -124,19 +129,29 @@ def addmRNADataToTree(root):
 				logCPM = float(geneDataTokens[2])
 				logFC = float(geneDataTokens[3])
 
-				c = treeSearch.findCellInOrder(root, parentCell)
+				pc = treeSearch.findCellInOrder(root, parentCell)
+				cc = treeSearch.findCellInOrder(root, childCell)
 
-				if c != None:
+				if pc != None:
 					if p_value <= p: # manually set p-value
-						if logFC > 0.0000000000: # the parent cell expresses this gene at a higher level than the child cell
+						if logFC > logFCThreshold: # the parent cell expresses this gene at a higher level than the child cell
 							geneDecreaseCounter += 1
 
-							# keep track of genes with log FC greater than 5
-							# if logFC > 5:
+							# make sure the gene meets the RPKM threshold in at least one of the cells
+							if pc.getMedGeneRPKM(gene) > medRPKMThreshold or cc.getMedGeneRPKM(gene) > medRPKMThreshold:
+								dataEntry[gene] = 1 # use 1 to denote increase on this gene from parent to child
 
 
-						elif logFC < 0.0000000000: # the parent cell expresses this gene at a lower level than the child cell
+
+
+						elif logFC < logFCThreshold: # the parent cell expresses this gene at a lower level than the child cell
 							geneIncreaseCounter += 1
+
+							if pc.getMedGeneRPKM(gene) > medRPKMThreshold or cc.getMedGeneRPKM(gene) > medRPKMThreshold:
+								dataEntry[gene] = -1 # use -1 to denote decrease on this gene from parent to child
+
+
+		data[parentCell + dash + childCell] = dataEntry
 
 		# find the difference
 		diff = geneIncreaseCounter - geneDecreaseCounter
@@ -160,7 +175,7 @@ def addmRNADataToTree(root):
 	writeToFile(results, totalNumIncreases, totalNumDecreases)
 
 def writeToFile(results, totalNumIncreases, totalNumDecreases):
-	print "\n writing results to file"
+	print "\nwriting results to file"
 
 	resultsDirName = "Results"
 
@@ -191,6 +206,8 @@ def writeToFile(results, totalNumIncreases, totalNumDecreases):
 	file.write(newline)
 	file.write(str(totalNumIncreases) + ", " + str(totalNumDecreases))
 
+	file.close()
+
 
 
 if __name__ == '__main__':
@@ -203,6 +220,8 @@ if __name__ == '__main__':
 
 	# also writes the data to file
 	addmRNADataToTree(P0_root)
+
+	vennDiagram.makeVennDiagram("P0", "AB", "P1", data["P0-P1"], data["P0-AB"])
 
 	print "\nprogram execution: {t} seconds".format(t=time.clock()-t0)
 	print "exiting"

@@ -31,7 +31,7 @@ class Cell(object):
 
 		return gene_RPKMs
 
-	def getMedGenRPKM(self, gene):
+	def getMedGeneRPKM(self, gene):
 		gene_RPKMs = self.getGeneRPKMs(gene)
 		gene_RPKMs.sort()
 
