@@ -1,16 +1,25 @@
 import sys
 import os
 import time
+import treeSearch
+import initRPKMs
 import cell
 import mRNAEvol
 
 preOrderTree = ["P0", "AB", "ABa", "ABal", "ABala", "ABalp", "ABar", "ABara", "ABarp", "ABp", "ABpl", "ABpla", "ABplp",
 "ABpr", "ABpra", "ABprp", "P", "EMS", "MS", "MSa", "MSp", "E", "Ea", "Ep", "P2", "C", "Ca", "Cp", "P3", "D", "P4"]
 
-headerLine = "Parent Cell - Child Cell, Genes Increased, Genes Decreased, Difference (Incr - Decr)"
+headerLine = "Parent Cell - Child Cell, Gene Exp. Increased in Child, Gene Exp. Decreased in Child, Difference (Incr - Decr)"
 headerLine2 = "Total Num Increases, Total Num Decreases"
 
 newline = "\n"
+
+# parameters
+p = 0.0100000000
+medRPKM = 25
+logFCThreshold = 0.5
+CPM = -1
+
 
 def buildTree():
 	print "\nconstructing tree rooted at P0"
@@ -75,6 +84,12 @@ def buildTree():
 
 	return P0
 
+def gatherRPKMData(root):
+	initRPKMs.initIDsToCellList()
+
+	initRPKMs.readRPMVals(root)
+
+
 def addmRNADataToTree(root):
 	print "\n adding mRNA data to tree"
 
@@ -97,8 +112,6 @@ def addmRNADataToTree(root):
 		parentCell = filename[0:delineator]
 		childCell = filename[delineator+1:end]
 
-		
-
 		geneIncreaseCounter = 0
 		geneDecreaseCounter = 0
 		with open(dirName + "/" + filename) as ins:
@@ -106,17 +119,23 @@ def addmRNADataToTree(root):
 			for line in ins:
 				geneDataTokens = line.split(",")
 
+				gene = geneDataTokens[0]
 				p_value = float(geneDataTokens[1])
 				logCPM = float(geneDataTokens[2])
 				logFC = float(geneDataTokens[3])
 
-				c = findCellInOrder(root, parentCell)
+				c = treeSearch.findCellInOrder(root, parentCell)
 
 				if c != None:
-					if p_value <= 0.015: # manually set p-value
-						if logFC > 0.: # the parent cell expresses this gene at a higher level than the child cell
+					if p_value <= p: # manually set p-value
+						if logFC > 0.0000000000: # the parent cell expresses this gene at a higher level than the child cell
 							geneDecreaseCounter += 1
-						elif logFC < 0.: # the parent cell expresses this gene at a lower level than the child cell
+
+							# keep track of genes with log FC greater than 5
+							# if logFC > 5:
+
+
+						elif logFC < 0.0000000000: # the parent cell expresses this gene at a lower level than the child cell
 							geneIncreaseCounter += 1
 
 		# find the difference
@@ -139,21 +158,6 @@ def addmRNADataToTree(root):
 
 	# write to file
 	writeToFile(results, totalNumIncreases, totalNumDecreases)
-
-
-def findCellInOrder(root, targetCellLineageName):
-	if not root:
-		return None
-
-	result = findCellInOrder(root.getCellL(), targetCellLineageName)
-
-	if result is not None:
-		return result
-
-	if root.getCellLineageName().lower() == targetCellLineageName.lower():
-		return root
-
-	return findCellInOrder(root.getCellR(), targetCellLineageName)
 
 def writeToFile(results, totalNumIncreases, totalNumDecreases):
 	print "\n writing results to file"
@@ -195,6 +199,9 @@ if __name__ == '__main__':
 
 	P0_root = buildTree()
 
+	gatherRPKMData(P0_root)
+
+	# also writes the data to file
 	addmRNADataToTree(P0_root)
 
 	print "\nprogram execution: {t} seconds".format(t=time.clock()-t0)
