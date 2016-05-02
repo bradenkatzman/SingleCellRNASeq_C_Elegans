@@ -22,7 +22,7 @@ data = {}
 p = 0.0100000000
 medRPKMThreshold = 25
 logFCThreshold = 0.5
-CPM = -1
+CPM = -1 # not currently in use
 
 
 def buildTree():
@@ -221,7 +221,7 @@ if __name__ == '__main__':
 	# also writes the data to file
 	addmRNADataToTree(P0_root)
 
-	vennDiagram.makeVennDiagram("P0", "AB", "P1", data["P0-P1"], data["P0-AB"])
+	vennDiagram.makeVennDiagram("P0", "AB", "P1", data["P0-P1"], data["P0-AB"], p, medRPKMThreshold, logFCThreshold)
 
 	print "\nprogram execution: {t} seconds".format(t=time.clock()-t0)
 	print "exiting"

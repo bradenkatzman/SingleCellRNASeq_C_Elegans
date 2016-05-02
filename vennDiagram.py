@@ -16,11 +16,12 @@ headerLineDecr = "Left Cell Decrease" + comma + "Shared Decrease" + comma + "Rig
 #	- the 3 cells: the parent, the left somatic child, and the right germline child
 #	- the dictionary of gene increases and decreases from the germline parent to the germ line child
 #	- the dictionary of gene increases and decreases from the germline parent to the somatic child
-def makeVennDiagram(germlineParent, somaticChild, germlineChild, glpToglc_dict, glpTosc_dict):
+def makeVennDiagram(germlineParent, somaticChild, germlineChild, glpToglc_dict, glpTosc_dict, p_value, medRPKMThreshold, logFCThreshold):
 	print "\nBuilding Venn Diagrams for siblings: germline cell {glc} and somatic cell {sc} from germline parent {glp} ".format(
 		glc=germlineChild, sc=somaticChild, glp=germlineParent)
 
 	title = germlineChild + "_" + somaticChild
+	criteria = ", ,Criteria:, p = {p}, medRPKM = {medRPKMThreshold}, logFC Threshold = {logFCThreshold}".format(p=p_value, medRPKMThreshold=medRPKMThreshold, logFCThreshold=logFCThreshold)
 
 	# initialize lists
 	leftCellIncr = []
@@ -78,9 +79,9 @@ def makeVennDiagram(germlineParent, somaticChild, germlineChild, glpToglc_dict, 
 	sharedDecr.sort()
 	rightCellDecr.sort()
 
-	writeVennDiagramToFile(title, leftCellIncr, sharedIncr, rightCellIncr, leftCellDecr, sharedDecr, rightCellDecr)
+	writeVennDiagramToFile(title, criteria, leftCellIncr, sharedIncr, rightCellIncr, leftCellDecr, sharedDecr, rightCellDecr)
 
-def writeVennDiagramToFile(title, leftCellIncr, sharedIncr, rightCellIncr, leftCellDecr, sharedDecr, rightCellDecr):
+def writeVennDiagramToFile(title, criteria, leftCellIncr, sharedIncr, rightCellIncr, leftCellDecr, sharedDecr, rightCellDecr):
 	print "writing venn diagram to file"
 
 	resultsDirName = "Results"
@@ -94,6 +95,7 @@ def writeVennDiagramToFile(title, leftCellIncr, sharedIncr, rightCellIncr, leftC
 	file = open(resultsDirName + "/" + filename, "w+")
 
 	file.write(headerLineIncr)
+	file.write(criteria)
 
 	iterator = 0
 
