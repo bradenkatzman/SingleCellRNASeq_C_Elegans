@@ -1,0 +1,293 @@
+Left Cell Increase,Shared Increase,Right Cell Increase, ,Criteria:, p = N/A, medRPKM = 25.0, logFC Threshold = 0.5
+C05C10.2,F56D5.5,B0228.6
+C08B11.6,M05B5.4,C06G3.8
+C31E10.7,Y110A2AR.3,C31E10.5
+F09E5.8,vet-2,C41G7.9
+F11C1.7, ,C43H6.7
+F19B10.10, ,C44B9.3
+F23F1.10, ,C49C3.6
+F39F10.4, ,E01G4.5
+F56A8.8, ,F10E9.7
+F56D5.5, ,F28D1.2
+M05B5.4, ,F46H5.3
+R05D11.9, ,F52G3.4
+T10B11.7, ,F56D2.2
+T25E12.6, ,H40L08.1
+VF13D12L.1, ,R11A5.3
+Y110A2AR.3, ,T08B6.5
+Y38C1AA.12, ,T10B11.8
+Y71F9AR.4, ,T21F4.1
+ZK328.4, ,Y37E3.11
+cel-1, ,Y46G5A.28
+cpsf-2, ,Y51F10.10
+dpl-1, ,Y5H2B.3
+fbxb-103, ,Y62E10A.13
+gpc-2, ,Y65B4BL.3
+his-60, ,Y71H2AM.20
+his-62, ,ZK1248.13
+hrpf-1, ,ZK673.5
+ify-1, ,air-2
+kbp-3, ,arl-1
+mom-4, ,atg-10
+mrt-2, ,cwn-1
+ncbp-1, ,daf-16
+pme-2, ,dpf-7
+pqn-96, ,duo-3
+rpl-7, ,eef-1A.2
+rpl-7A, ,fkh-4
+rpt-5, ,gdi-1
+ruvb-1, ,hnd-1
+sac-1, ,pam-1
+smk-1, ,pes-10
+ttll-4, ,pfd-3
+vet-2, ,ref-1
+ztf-11, ,rfc-2
+ , ,rsd-2
+ , ,scd-1
+ , ,sdz-37
+ , ,tag-276
+ , ,tbx-11
+ , ,tbx-33
+ , ,tbx-9
+
+Left Cell Decrease,Shared Decrease,Right Cell Decrease
+B0272.3,B0432.8,B0361.2
+B0432.8,E01A2.1,C01B10.8
+B0491.6,F10G7.5,C05D11.10
+B0491.7,F10G8.6,C07E3.6
+C05C10.3,F35G12.11,C14B1.9
+C06E2.5,K07A12.7,C16C10.2
+C10E2.6,R107.2,C17H11.2
+C16A11.2,T13H5.5,C33A12.1
+C17E4.4,W02D3.1,C33A12.7
+C17E7.9,Y37E3.10,C34E10.10
+C26B2.7,Y39A1A.21,C36C9.1
+C26E6.3,Y39B6A.33,C37A2.7
+C26E6.6,Y51H4A.15,C42C1.11
+C29E4.15,Y60A3A.7,C48B6.2
+C29H12.5,apm-3,C50D2.5
+C30H6.8,coq-5,D1044.6
+C31H5.4,dhs-11,F09G2.2
+C32E8.3,ego-2,F10E7.2
+C41D11.9,rom-5,F19F10.10
+C41H7.3,rpl-19,F26E4.6
+C42C1.12,skr-15,F31D4.9
+C48B4.8,tbc-9,F35G2.2
+C49F5.3,umps-1,F38E9.5
+C50F7.4, ,F40E3.2
+C55B6.1, ,F45E12.5
+D1007.10, ,F48E8.2
+D2030.2, ,F54D12.4
+D2085.5, ,F54D7.7
+E01A2.1, ,F55F8.2
+F09A5.4, ,K06A5.1
+F10B5.8, ,K07C5.4
+F10G7.5, ,M04B2.2
+F10G8.6, ,T01C3.2
+F12F6.1, ,T02H6.11
+F13E6.1, ,T05H4.10
+F13H10.3, ,T10C6.6
+F19B6.1, ,T12B3.4
+F23H11.3, ,T12D8.10
+F26G5.1, ,T24C2.2
+F26H9.5, ,T27F7.1
+F28B3.6, ,W06D11.2
+F30B5.4, ,Y105E8A.11
+F31C3.2, ,Y111B2A.2
+F33H1.4, ,Y37E11B.6
+F35G12.11, ,Y39A1A.3
+F36A2.9, ,Y48G8AL.7
+F43C1.6, ,Y52B11A.8
+F43G6.7, ,Y54E5A.5
+F46B6.12, ,Y54G11A.17
+F47G4.2, ,Y66D12A.5
+F48E8.3, ,Y67D2.3
+F49D11.10, ,Y69H2.7
+F49E8.7, ,ZC262.8
+F54C9.9, ,ZC395.10
+F56A8.3, ,abcf-2
+F57B10.3, ,acbp-1
+F58H1.8, ,apx-1
+H05C05.2, ,atg-3
+JC8.2, ,chin-1
+K07A12.7, ,cyn-10
+K07E8.7, ,cyp-44A1
+K07H8.1, ,dnc-1
+K08A2.4, ,dsh-1
+K08F11.5, ,esyt-2
+M01G5.3, ,his-68
+M02B7.7, ,kbp-5
+R02F2.7, ,lbp-9
+R03A10.1, ,mdt-6
+R05D3.12, ,mog-3
+R05H11.1, ,nhr-71
+R07E5.1, ,nucb-1
+R08E3.3, ,pfd-2
+R09F10.3, ,pfd-4
+R107.2, ,ppk-3
+R107.5, ,psr-1
+R10E4.1, ,pus-1
+R10E4.7, ,rpl-16
+R12E2.1, ,rpl-33
+T02E1.2, ,rps-10
+T06D8.7, ,rps-17
+T07A9.10, ,rps-20
+T07C12.12, ,sep-1
+T07C12.14, ,snr-7
+T09A5.15, ,taf-6.1
+T09B4.2, ,tin-13
+T13H5.5, ,ubl-5
+T15H9.2, , 
+T16H12.11, , 
+T20F10.2, , 
+T20G5.10, , 
+T23F11.1, , 
+T23H2.3, , 
+T24H7.2, , 
+W02D3.1, , 
+W09C3.4, , 
+Y105C5B.19, , 
+Y106G6H.5, , 
+Y108G3AL.2, , 
+Y17G7B.10, , 
+Y18D10A.9, , 
+Y24F12A.1, , 
+Y37E3.10, , 
+Y38A10A.7, , 
+Y39A1A.21, , 
+Y39A1A.7, , 
+Y39B6A.33, , 
+Y39G10AR.7, , 
+Y43F4B.5, , 
+Y43F8C.8, , 
+Y47D7A.14, , 
+Y48G10A.2, , 
+Y50D7A.10, , 
+Y50D7A.9, , 
+Y51H4A.15, , 
+Y54F10AL.1, , 
+Y54F10AR.2, , 
+Y57A10A.25, , 
+Y57A10A.5, , 
+Y57G11C.33, , 
+Y60A3A.7, , 
+Y62E10A.2, , 
+Y65B4BR.8, , 
+Y66D12A.10, , 
+Y71F9B.2, , 
+Y71G12B.8, , 
+Y73B3A.1, , 
+Y76A2B.5, , 
+Y97E10AR.7, , 
+ZK1010.2, , 
+aagr-3, , 
+abts-1, , 
+acl-3, , 
+ain-2, , 
+apm-3, , 
+aps-1, , 
+aps-3, , 
+aqp-10, , 
+asna-1, , 
+bed-1, , 
+brd-1, , 
+brf-1, , 
+ccpp-1, , 
+ccz-1, , 
+cdc-26, , 
+cdk-4, , 
+ced-5, , 
+clk-1, , 
+coq-5, , 
+cpb-1, , 
+cpn-1, , 
+cyb-2.1, , 
+cyp-31A3, , 
+dhod-1, , 
+dhs-11, , 
+dhs-22, , 
+dnj-22, , 
+dpf-3, , 
+dpf-5, , 
+dpy-26, , 
+dyrb-1, , 
+ears-1, , 
+ego-2, , 
+egrh-1, , 
+ent-1, , 
+eri-3, , 
+fat-4, , 
+fce-2, , 
+fis-2, , 
+frh-1, , 
+fzo-1, , 
+gei-17, , 
+gfi-3, , 
+gla-3, , 
+gls-1, , 
+gpi-1, , 
+gro-1, , 
+gst-1, , 
+hcp-6, , 
+hke-4.2, , 
+hpl-1, , 
+hum-1, , 
+hum-2, , 
+hyl-2, , 
+ing-3, , 
+inx-21, , 
+isw-1, , 
+kin-32, , 
+lap-1, , 
+ldh-1, , 
+lig-1, , 
+lin-61, , 
+mat-2, , 
+mbf-1, , 
+mboa-6, , 
+mdt-29, , 
+mdt-30, , 
+mek-1, , 
+mff-2, , 
+misc-1, , 
+mmaa-1, , 
+msh-2, , 
+mtm-3, , 
+mtss-1, , 
+nfyb-1, , 
+nhr-13, , 
+nhr-4, , 
+pat-12, , 
+pkc-1, , 
+pptr-1, , 
+pptr-2, , 
+rab-21, , 
+rab-5, , 
+rnf-5, , 
+rom-5, , 
+rpl-19, , 
+rps-0, , 
+scpl-2, , 
+sec-20, , 
+skr-15, , 
+slx-1, , 
+smg-4, , 
+sqv-7, , 
+taf-11.3, , 
+tag-173, , 
+tag-175, , 
+tag-182, , 
+tag-325, , 
+tbc-9, , 
+thoc-3, , 
+toe-1, , 
+top-1, , 
+ufd-2, , 
+ulp-3, , 
+umps-1, , 
+vha-19, , 
+vha-7, , 
+vps-37, , 
+wsp-1, , 
+wwp-1, , 
+xpg-1, , 

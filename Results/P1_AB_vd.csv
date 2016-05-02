@@ -1,0 +1,933 @@
+Left Cell Increase,Shared Increase,Right Cell Increase, ,Criteria:, p = N/A, medRPKM = 25.0, logFC Threshold = 0.5
+B0001.3,B0495.9,B0035.6
+B0205.1,C03H5.3,C05C8.6
+B0212.3,C05G5.4,C06A5.3
+B0261.1,C08H9.2,C12D8.1
+B0303.3,C17E4.6,C24G6.8
+B0495.2,C18F10.7,C27C12.4
+B0495.7,C27F2.8,C27D9.1
+B0495.9,C38D4.1,C30C11.4
+C01F1.1,C39E9.11,C30G12.6
+C02F5.6,C41H7.3,C32D5.3
+C03H5.3,F08F8.9,C34E10.8
+C05G5.4,F10B5.8,C35C5.6
+C06A8.1,F17C11.10,C36E6.1
+C08H9.2,F19F10.10,C41H7.6
+C13F10.7,F19F10.12,C42C1.11
+C14B9.2,F25B5.6,C56G2.7
+C14C10.5,F25H8.2,F02E9.10
+C17D12.1,F26B1.2,F13B12.1
+C17E4.6,F30F8.1,F17H10.1
+C17E7.4,F32A7.4,F19B10.10
+C18B12.6,F32D1.5,F19F10.11
+C18E3.9,F32D1.7,F20A1.9
+C18F10.7,F46H5.3,F22E5.17
+C23G10.8,F49E8.7,F23A7.8
+C27F2.8,F54A3.6,F26F2.7
+C30F12.4,F54D5.9,F37A4.1
+C34B2.6,F56A8.3,F49C12.9
+C34C6.4,H25P06.1,F53H1.1
+C37H5.3,H28O16.1,F54D5.2
+C38D4.1,LLC1.3,F58G11.3
+C39E9.11,R04E5.8,F59E12.9
+C39E9.12,R05D7.4,K03A1.2
+C41H7.3,R06C7.1,K07B1.6
+C43H6.7,R12C12.5,K11H12.8
+C44E4.5,R144.5,M04F3.4
+C47D12.8,R148.4,R05F9.1
+C54G6.1,R151.7,R06F6.12
+E01A2.2,R74.8,R119.1
+F01F1.11,T02C12.2,T02H6.1
+F01G4.3,T04D3.5,T04A8.7
+F01G4.6,T04H1.2,T05E11.3
+F08F8.9,T10B10.3,T06D4.1
+F10B5.8,T10E9.2,T12C9.7
+F10C2.4,T13F2.6,T14B4.1
+F14H3.5,T19H12.2,T24D1.5
+F16A11.1,T27A3.2,VF13D12L.1
+F17C11.10,W02D9.3,VF13D12L.3
+F19F10.10,Y110A2AR.1,W03F8.3
+F19F10.12,Y110A7A.4,WBGene00219451
+F19F10.9,Y119D3B.11,Y111B2A.3
+F22D3.2,Y25C1A.7,Y37E3.10
+F23C8.5,Y34B4A.2,Y37E3.17
+F23F1.5,Y37E3.1,Y41D4A.5
+F25B4.2,Y39A1A.12,Y43F8B.2
+F25B4.5,Y41D4A.6,Y48B6A.1
+F25B5.2,Y45G5AM.7,Y48G8AL.10
+F25B5.6,Y48G1C.1,Y51F10.2
+F25G6.9,Y49E10.4,Y53C12B.1
+F25H5.5,Y53C10A.6,Y57A10A.25
+F25H8.2,Y54G11A.3,Y59A8A.3
+F25H9.6,Y55F3AM.3,Y61A9LA.10
+F26B1.2,Y57G11C.15,Y71G12B.1
+F26G5.1,ZC204.2,ZC504.3
+F30F8.1,ZK418.9,ZK809.5
+F32A7.4,ZK742.2,ZK945.4
+F32D1.5,ZK973.2,ZK973.1
+F32D1.7,aars-2,aars-1
+F33H2.2,acdh-7,acdh-10
+F35F11.1,ahcy-1,acin-1
+F35G12.4,aldo-2,acs-13
+F37B4.10,ant-1.1,alh-9
+F38E9.5,cars-1,atg-3
+F39G3.3,cdc-48.2,atp-2
+F43H9.3,cdk-8,bath-1
+F46H5.3,chc-1,bmk-1
+F49E8.2,com-1,cam-1
+F49E8.7,cts-1,ceh-41
+F52A8.5,dsh-2,clp-1
+F52E1.13,dut-1,cnx-1
+F53B3.5,eef-1A.1,cpg-4
+F53C11.4,eef-1B.1,cpt-2
+F53H1.3,eef-1G,cra-1
+F53H4.4,eef-2,dsl-2
+F54A3.6,egl-45,eat-6
+F54D5.9,ehs-1,fars-3
+F55A11.4,elks-1,fbxb-7
+F55A12.5,emb-27,fbxc-40
+F55G1.7,exo-1,fbxc-50
+F56A8.3,fntb-1,gei-14
+F56C9.6,fum-1,gly-10
+F57B10.4,hcp-1,hgrs-1
+H06I04.3,hcp-2,hil-4
+H24K24.3,hdac-6,him-10
+H25P06.1,hmg-3,hpr-9
+H27M09.1,hsp-4,hyls-1
+H28O16.1,ify-1,ivd-1
+H40L08.1,imb-3,lsy-12
+K01D12.6,larp-5,mtx-1
+K07C5.6,lsy-27,nduf-2.2
+K10D2.1,mat-1,nex-1
+LLC1.3,mecr-1,nhr-47
+M01F1.4,mes-6,nol-10
+M03F8.3,mex-1,pbs-1
+M05B5.4,mmcm-1,pcca-1
+M18.6,npp-16,pgl-1
+R04E5.8,npp-9,pgl-3
+R05D7.4,ntl-2,pie-1
+R06C7.1,pab-1,plk-2
+R11A5.4,pam-1,pmk-1
+R12C12.5,paqr-1,pod-1
+R12C12.6,pccb-1,polk-1
+R12E2.2,pdi-2,pqn-59
+R144.5,pms-2,rde-4
+R148.4,pqn-51,rpl-7A
+R151.7,pqn-65,rps-0
+R74.8,pri-2,sdha-1
+T02C12.2,prmt-1,sdha-2
+T03D3.5,ptr-2,sea-1
+T04D3.5,rgs-9,sec-15
+T04H1.2,rpn-10,smc-6
+T05H10.1,rsa-1,stip-1
+T07A9.10,sap-49,szy-4
+T07A9.9,sas-5,tag-151
+T07F12.2,sel-11,tkt-1
+T09A5.8,set-31,toe-4
+T09B9.1,skpt-1,try-1
+T09E8.1,spd-2,ttll-5
+T10B10.3,sqd-1,unc-51
+T10E9.2,sqv-5,vig-1
+T12E12.1,sti-1,vps-33.1
+T13F2.6,syp-1,yars-1
+T19A6.1,tag-30, 
+T19H12.2,tag-349, 
+T21B10.3,tag-77, 
+T22C1.6,tba-1, 
+T22F3.2,tba-2, 
+T23B12.4,tbb-1, 
+T24H7.2,tbb-2, 
+T25B9.8,tbc-2, 
+T27A3.2,tcl-2, 
+W02D9.3,tiar-1, 
+W03F9.1,toca-2, 
+W09C5.7,tre-1, 
+W09G3.6,ubc-6, 
+Y105E8A.20,ubq-1, 
+Y110A2AR.1,ucr-1, 
+Y110A7A.4,vps-33.2, 
+Y119D3B.11,vps-45, 
+Y14H12B.2,wht-2, 
+Y18H1A.7,xbp-1, 
+Y25C1A.7,zer-1, 
+Y34B4A.2,ztf-18, 
+Y37E3.1,ztf-23, 
+Y39A1A.12, , 
+Y39E4B.2, , 
+Y39F10B.1, , 
+Y41D4A.6, , 
+Y45G5AM.7, , 
+Y45G5AM.9, , 
+Y47G6A.4, , 
+Y48G1C.1, , 
+Y49E10.4, , 
+Y51F10.10, , 
+Y53C10A.6, , 
+Y54G11A.3, , 
+Y54G9A.5, , 
+Y55F3AM.3, , 
+Y55F3AM.9, , 
+Y57A10A.13, , 
+Y57E12AL.1, , 
+Y57G11C.15, , 
+Y65B4A.1, , 
+Y67H2A.2, , 
+Y69A2AR.1, , 
+Y73F8A.24, , 
+Y95B8A.8, , 
+ZC204.2, , 
+ZC262.3, , 
+ZC308.4, , 
+ZC477.3, , 
+ZC477.5, , 
+ZC477.5, , 
+ZK370.4, , 
+ZK418.9, , 
+ZK742.2, , 
+ZK836.2, , 
+ZK858.6, , 
+ZK973.2, , 
+aars-2, , 
+acdh-12, , 
+acdh-3, , 
+acdh-7, , 
+act-4, , 
+age-1, , 
+agef-1, , 
+ahcy-1, , 
+aka-1, , 
+aldo-2, , 
+ani-1, , 
+ant-1.1, , 
+apb-3, , 
+ape-1, , 
+app-1, , 
+bath-38, , 
+bath-40, , 
+brd-1, , 
+brf-1, , 
+bub-3, , 
+capg-1, , 
+cars-1, , 
+ccf-1, , 
+ccpp-1, , 
+cdc-25.1, , 
+cdc-48.2, , 
+cdk-8, , 
+cdk-9, , 
+ceh-38, , 
+ceh-39, , 
+chc-1, , 
+cic-1, , 
+cids-2, , 
+clec-87, , 
+clec-91, , 
+cogc-4, , 
+cogc-6, , 
+cogc-8, , 
+coh-4, , 
+com-1, , 
+cri-3, , 
+cts-1, , 
+cyb-1, , 
+cye-1, , 
+cyl-1, , 
+daz-1, , 
+dkf-2, , 
+dnc-1, , 
+dnj-28, , 
+dnj-29, , 
+dom-3, , 
+dpf-3, , 
+drsh-1, , 
+dsh-2, , 
+dut-1, , 
+eef-1A.1, , 
+eef-1B.1, , 
+eef-1G, , 
+eef-2, , 
+efa-6, , 
+eftu-2, , 
+egl-30, , 
+egl-45, , 
+ehbp-1, , 
+ehs-1, , 
+eif-3.C, , 
+elks-1, , 
+emb-27, , 
+eor-1, , 
+ergo-1, , 
+evl-14, , 
+exo-1, , 
+fah-1, , 
+fbxa-120, , 
+fipp-1, , 
+fntb-1, , 
+frm-2, , 
+frm-7, , 
+fum-1, , 
+fzy-1, , 
+gad-1, , 
+gen-1, , 
+gld-3, , 
+hcp-1, , 
+hcp-2, , 
+hdac-6, , 
+hel-1, , 
+him-17, , 
+him-18, , 
+him-19, , 
+hmg-3, , 
+hmp-2, , 
+hoe-1, , 
+hsp-4, , 
+ify-1, , 
+ikke-1, , 
+imb-3, , 
+immt-2, , 
+kin-19, , 
+kin-4, , 
+klp-12, , 
+klp-8, , 
+larp-5, , 
+lem-3, , 
+let-721, , 
+let-99, , 
+letm-1, , 
+lin-36, , 
+lin-53, , 
+lin-59, , 
+lsy-13, , 
+lsy-22, , 
+lsy-27, , 
+map-1, , 
+mat-1, , 
+mboa-6, , 
+mcm-4, , 
+mcm-7, , 
+mdf-1, , 
+mecr-1, , 
+mei-1, , 
+mes-6, , 
+mex-1, , 
+mmcm-1, , 
+mut-15, , 
+nasp-2, , 
+ncs-2, , 
+ndc-80, , 
+npp-10, , 
+npp-16, , 
+npp-21, , 
+npp-5, , 
+npp-9, , 
+ntl-2, , 
+nuo-1, , 
+obr-4, , 
+orai-1, , 
+pab-1, , 
+pam-1, , 
+paqr-1, , 
+pas-1, , 
+pbs-2, , 
+pcaf-1, , 
+pccb-1, , 
+pdi-2, , 
+pdp-1, , 
+phb-2, , 
+plk-1, , 
+pmp-3, , 
+pms-2, , 
+pph-4.2, , 
+pptr-2, , 
+pqn-51, , 
+pqn-65, , 
+prg-1, , 
+pri-2, , 
+prmt-1, , 
+pro-2, , 
+prpf-4, , 
+psf-1, , 
+ptr-2, , 
+rad-50, , 
+rba-1, , 
+rbg-3, , 
+rbr-2, , 
+rde-1, , 
+rfc-1, , 
+rfp-1, , 
+rgs-9, , 
+rha-1, , 
+rnp-8, , 
+rpn-10, , 
+rpn-9, , 
+rsa-1, , 
+rsd-2, , 
+rskd-1, , 
+sap-49, , 
+sas-5, , 
+sas-6, , 
+scc-1, , 
+sel-11, , 
+sem-5, , 
+set-31, , 
+seu-1, , 
+skpt-1, , 
+skr-2, , 
+smg-3, , 
+smg-4, , 
+smg-6, , 
+smg-7, , 
+smk-1, , 
+sna-2, , 
+sop-3, , 
+spd-2, , 
+spd-5, , 
+spe-5, , 
+sqd-1, , 
+sqrd-1, , 
+sqv-5, , 
+stau-1, , 
+sti-1, , 
+strd-1, , 
+such-1, , 
+sup-26, , 
+syp-1, , 
+syp-4, , 
+tag-298, , 
+tag-30, , 
+tag-307, , 
+tag-315, , 
+tag-320, , 
+tag-349, , 
+tag-353, , 
+tag-72, , 
+tag-77, , 
+tars-1, , 
+tat-1, , 
+tba-1, , 
+tba-2, , 
+tbb-1, , 
+tbb-2, , 
+tbc-1, , 
+tbc-2, , 
+tbg-1, , 
+tbx-11, , 
+tcl-2, , 
+tdp-1, , 
+thoc-2, , 
+tiar-1, , 
+tlk-1, , 
+toca-2, , 
+tpxl-1, , 
+tre-1, , 
+trm-1, , 
+uaf-1, , 
+uba-1, , 
+ubc-6, , 
+ubq-1, , 
+ubxn-6, , 
+ucr-1, , 
+uri-1, , 
+vps-33.2, , 
+vps-39, , 
+vps-45, , 
+wht-2, , 
+xbp-1, , 
+xpo-1, , 
+zer-1, , 
+zfp-2, , 
+ztf-18, , 
+ztf-23, , 
+ztf-3, , 
+zwl-1, , 
+
+Left Cell Decrease,Shared Decrease,Right Cell Decrease
+B0024.13,B0334.17,B0205.6
+B0035.18,C06G3.5,B0285.4
+B0205.8,C07H6.2,B0491.7
+B0334.17,C09B8.4,C01A2.3
+B0334.4,C11D2.7,C01B12.9
+B0334.5,C17E4.4,C05C8.5
+B0432.8,C25D7.10,C09B7.2
+B0495.6,C25H3.17,C10E2.6
+C01F6.9,C31G12.1,C18A3.1
+C01G5.6,C48B4.6,C25H3.7
+C01G6.4,C50E3.11,C30H7.2
+C03H5.2,C56C10.10,C35D10.5
+C05D11.10,D2030.4,C43H6.3
+C06G3.5,F16B12.4,C44B9.3
+C06H2.6,F27C1.2,C48B4.7
+C07A9.2,F32D8.4,C49C8.3
+C07A9.9,F33G12.7,C53A5.16
+C07H6.15,F34H10.3,C55C3.5
+C07H6.2,F36D4.2,D2030.1
+C08B11.9,F39H11.1,F08B6.3
+C08B6.8,F39H2.3,F09G2.9
+C09B8.4,F43D2.1,F10D7.5
+C11D2.7,F43G9.13,F10E9.7
+C14B1.2,F53F10.8,F10G2.4
+C14B1.9,F57B10.5,F13E6.1
+C14B9.10,K01C8.6,F13H10.3
+C14C10.2,MTCE.11,F14H3.4
+C15H11.8,MTCE.12,F14H3.6
+C16A3.10,MTCE.16,F15B10.3
+C16A3.5,MTCE.23,F16H11.3
+C16C10.1,MTCE.25,F19C6.2
+C16C10.2,MTCE.26,F20D1.9
+C17E4.4,MTCE.3,F21C10.10
+C17H12.13,MTCE.31,F21D5.4
+C18E9.10,MTCE.33,F21D5.6
+C18E9.4,MTCE.35,F25H2.7
+C23G10.7,MTCE.7,F26H9.4
+C24D10.6,R04F11.5,F27D4.7
+C25A1.13,T09A5.15,F28B3.6
+C25A1.16,T09A5.4,F31B9.3
+C25D7.10,T09B4.2,F31C3.4
+C25F6.1,T13H5.5,F31E8.4
+C25H3.17,T20H4.5,F33D11.12
+C26F1.3,T21B10.1,F33D4.8
+C27B7.2,T23B12.2,F35D2.3
+C27D6.4,W04B5.4,F38A5.7
+C27F2.4,Y106G6H.14,F38E1.9
+C30C11.1,Y106G6H.16,F40F9.7
+C31G12.1,Y116A8C.27,F40G12.11
+C33A12.1,Y52B11A.2,F42H10.3
+C34B2.10,Y53G8AR.9,F43G9.2
+C34C12.8,Y56A3A.19,F45H11.5
+C34E10.10,Y62F5A.12,F46F11.7
+C35D10.10,Y69A2AR.7,F52A8.1
+C36B1.14,bag-1,F54E7.9
+C36E6.2,bca-2,F55H2.7
+C42C1.12,ctb-1,H20J04.4
+C43E11.9,dap-3,K07C5.2
+C45G9.5,frh-1,K12H4.4
+C45G9.7,lgg-1,M04C9.3
+C46C2.7,lin-66,M106.3
+C47B2.2,mff-1,R01B10.4
+C48B4.6,rrn-2.1,R11A8.5
+C48B4.9,taf-11.3,R166.3
+C48B6.10,trap-2,R53.2
+C48B6.2,ubh-1,T01G1.4
+C48B6.9,unc-101,T01H3.4
+C49A9.10, ,T03F1.12
+C50B8.1, ,T03F1.7
+C50E3.11, ,T04D3.8
+C53B4.6, ,T05H4.11
+C56C10.10, ,T07E3.4
+D1007.4, ,T09E8.3
+D1046.3, ,T16G12.4
+D2005.7, ,T19A6.3
+D2007.4, ,T22G5.3
+D2030.4, ,T24B1.1
+E01B7.2, ,W02D9.4
+E02H1.2, ,Y104H12D.4
+E02H1.6, ,Y37E11B.2
+E02H1.8, ,Y53G8AR.6
+EEED8.15, ,Y54F10AM.11
+F02D10.6, ,Y54G2A.19
+F02E9.7, ,Y55F3AR.1
+F08F8.7, ,Y57A10A.23
+F09E5.11, ,Y59A8B.12
+F09E5.3, ,Y73B6BL.27
+F10E9.4, ,Y74C9A.3
+F13E6.3, ,ZC477.5
+F13E9.1, ,ZK1127.13
+F13G3.10, ,ZK632.5
+F13G3.11, ,ZK795.3
+F13H10.8, ,ZK858.7
+F15A4.10, ,adm-4
+F15B10.1, ,aqp-10
+F16B12.4, ,ceh-49
+F21D5.8, ,chtl-1
+F23F1.10, ,dep-1
+F23H11.5, ,dpm-1
+F25G6.8, ,dylt-1
+F25H5.6, ,eif-3.F
+F26E4.6, ,fkb-1
+F27B3.6, ,hmg-5
+F27C1.2, ,imb-2
+F28C6.8, ,jamp-1
+F29A7.6, ,let-60
+F29B9.10, ,nhr-10
+F29B9.11, ,nth-1
+F29C4.2, ,pot-1
+F30F8.3, ,pqn-83
+F31D4.9, ,pst-2
+F32D8.4, ,rap-1
+F33D4.7, ,rnh-2
+F33G12.7, ,scm-1
+F34H10.3, ,sec-22
+F35D11.4, ,sec-3
+F35D11.5, ,secs-1
+F35G12.12, ,skr-16
+F35G2.2, ,sptf-3
+F36D4.2, ,sur-7
+F38H4.10, ,toc-1
+F39H11.1, ,trxr-2
+F39H2.3, ,tth-1
+F42A9.6, ,ttr-53
+F42G8.10, ,uev-3
+F43C1.3, ,ykt-6
+F43D2.1, , 
+F43D2.2, , 
+F43G9.13, , 
+F44B9.5, , 
+F44E7.2, , 
+F45E10.2, , 
+F46B6.12, , 
+F47G9.1, , 
+F48C1.5, , 
+F53E10.6, , 
+F53F10.8, , 
+F53H2.4, , 
+F54A3.5, , 
+F54D12.4, , 
+F54D7.6, , 
+F54D7.7, , 
+F55A11.8, , 
+F56C11.3, , 
+F56D1.3, , 
+F56H1.7, , 
+F56H9.2, , 
+F57B10.14, , 
+F57B10.3, , 
+F57B10.5, , 
+F58A4.9, , 
+F59A3.3, , 
+H02I12.5, , 
+H06H21.11, , 
+K01C8.6, , 
+K02D10.1, , 
+K05C4.2, , 
+K06H7.2, , 
+K07A1.1, , 
+K07A1.10, , 
+K07F5.14, , 
+K07F5.15, , 
+K07G5.6, , 
+K07H8.3, , 
+K08F4.3, , 
+K11B4.2, , 
+K11H3.4, , 
+K11H3.6, , 
+K12H4.3, , 
+K12H4.5, , 
+M01E11.1, , 
+M01F1.6, , 
+M05D6.5, , 
+M28.5, , 
+M88.2, , 
+MTCE.11, , 
+MTCE.12, , 
+MTCE.16, , 
+MTCE.23, , 
+MTCE.25, , 
+MTCE.26, , 
+MTCE.3, , 
+MTCE.31, , 
+MTCE.33, , 
+MTCE.34, , 
+MTCE.35, , 
+MTCE.4, , 
+MTCE.7, , 
+R04F11.2, , 
+R04F11.5, , 
+R05D11.5, , 
+R05F9.9, , 
+R07E4.3, , 
+R07E5.7, , 
+R08D7.5, , 
+R10E4.9, , 
+R119.3, , 
+R12E2.11, , 
+R144.11, , 
+R144.12, , 
+R148.2, , 
+R151.10, , 
+R186.3, , 
+R53.6, , 
+T01C3.2, , 
+T01C3.3, , 
+T01E8.6, , 
+T01G5.7, , 
+T05A7.1, , 
+T07E3.3, , 
+T09A5.15, , 
+T09A5.4, , 
+T09A5.7, , 
+T09B4.2, , 
+T10C6.10, , 
+T12B3.4, , 
+T12D8.6, , 
+T12G3.5, , 
+T13H5.5, , 
+T14B4.5, , 
+T20D3.8, , 
+T20G5.10, , 
+T20G5.14, , 
+T20H4.5, , 
+T21B10.1, , 
+T21C9.1, , 
+T23B12.2, , 
+T23F2.5, , 
+T24D1.3, , 
+T24H10.1, , 
+T24H7.3, , 
+T25G3.4, , 
+W01D2.1, , 
+W02B12.15, , 
+W02D9.2, , 
+W03C9.5, , 
+W04B5.4, , 
+W04C9.2, , 
+W04C9.4, , 
+W06D11.3, , 
+W09B6.4, , 
+W09C3.4, , 
+W09G3.1, , 
+Y105E8A.11, , 
+Y105E8A.36, , 
+Y105E8B.5, , 
+Y106G6H.14, , 
+Y106G6H.16, , 
+Y106G6H.8, , 
+Y10G11A.90, , 
+Y113G7B.24, , 
+Y116A8C.27, , 
+Y119C1B.4, , 
+Y11D7A.10, , 
+Y11D7A.7, , 
+Y37E3.8, , 
+Y38C1AA.14, , 
+Y38E10A.24, , 
+Y38F2AR.9, , 
+Y39A1A.14, , 
+Y39A1A.24, , 
+Y39A3CL.3, , 
+Y39B6A.3, , 
+Y39B6A.39, , 
+Y39E4B.5, , 
+Y39G10AR.20, , 
+Y43F8C.7, , 
+Y44E3A.3, , 
+Y44F5A.1, , 
+Y45F10D.4, , 
+Y48E1C.4, , 
+Y48G1C.9, , 
+Y49G5B.1, , 
+Y51H7C.3, , 
+Y51H7C.7, , 
+Y52B11A.2, , 
+Y53G8AR.9, , 
+Y54F10AL.1, , 
+Y54G11A.9, , 
+Y56A3A.19, , 
+Y56A3A.22, , 
+Y57A10A.27, , 
+Y62F5A.12, , 
+Y63D3A.7, , 
+Y65B4BR.8, , 
+Y66D12A.21, , 
+Y66H1A.4, , 
+Y67D2.3, , 
+Y69A2AR.3, , 
+Y69A2AR.7, , 
+Y71G12B.6, , 
+Y71H2AM.24, , 
+Y71H2AR.1, , 
+Y73F8A.27, , 
+Y75B8A.14, , 
+Y77E11A.6, , 
+Y82E9BR.14, , 
+Y82E9BR.22, , 
+Y82E9BR.3, , 
+Y95D11A.1, , 
+ZC262.8, , 
+ZC395.10, , 
+ZK1098.5, , 
+ZK1098.7, , 
+ZK1127.5, , 
+ZK1248.11, , 
+ZK1248.15, , 
+ZK265.6, , 
+ZK265.9, , 
+ZK418.5, , 
+ZK546.14, , 
+ZK632.12, , 
+ZK632.14, , 
+ZK686.1, , 
+ZK688.3, , 
+ZK856.8, , 
+acbp-1, , 
+acl-2, , 
+adbp-1, , 
+apc-16, , 
+arx-6, , 
+atad-3, , 
+baf-1, , 
+bag-1, , 
+bath-30, , 
+bca-2, , 
+btb-19, , 
+ccch-5, , 
+cdc-26, , 
+cdr-6, , 
+chs-1, , 
+cks-1, , 
+cpg-3, , 
+cpn-1, , 
+ctb-1, , 
+ctns-1, , 
+cyc-2.1, , 
+cyn-10, , 
+cyn-3, , 
+cyn-7, , 
+cyp-31A3, , 
+cyp-31A5, , 
+dap-3, , 
+dhs-1, , 
+dnj-2, , 
+dnj-4, , 
+dpm-3, , 
+dss-1, , 
+dyrb-1, , 
+egg-2, , 
+eif-6, , 
+emo-1, , 
+emr-1, , 
+exos-3, , 
+fbxa-101, , 
+fbxa-197, , 
+fbxa-206, , 
+fbxa-83, , 
+fdps-1, , 
+fis-2, , 
+frh-1, , 
+glo-4, , 
+glrx-21, , 
+glrx-22, , 
+gon-2, , 
+hap-1, , 
+har-1, , 
+him-3, , 
+hint-1, , 
+hipr-1, , 
+his-74, , 
+hsb-1, , 
+iff-1, , 
+kbp-1, , 
+kin-20, , 
+laf-1, , 
+lbp-9, , 
+lgg-1, , 
+lin-66, , 
+lin-7, , 
+lpd-5, , 
+lpd-8, , 
+lpd-9, , 
+lsm-1, , 
+lsm-7, , 
+lsm-8, , 
+mce-1, , 
+mdh-1, , 
+mff-1, , 
+mff-2, , 
+mmab-1, , 
+moag-4, , 
+mspn-1, , 
+mtss-1, , 
+mxl-1, , 
+nduf-7, , 
+ned-8, , 
+nhr-13, , 
+nhr-40, , 
+nhr-56, , 
+nkb-1, , 
+pas-4, , 
+pat-6, , 
+pfd-1, , 
+pfd-2, , 
+pfd-4, , 
+pfd-5, , 
+pfn-1, , 
+pot-3, , 
+praf-3, , 
+prdx-3, , 
+prdx-6, , 
+pro-1, , 
+prx-14, , 
+rab-1, , 
+rab-18, , 
+rab-5, , 
+rab-6.1, , 
+rap-2, , 
+rer-1, , 
+rho-1, , 
+rla-2, , 
+rlbp-1, , 
+rnh-1.0, , 
+rnp-2, , 
+rpb-10, , 
+rpb-11, , 
+rpb-8, , 
+rpl-10, , 
+rpl-11.1, , 
+rpl-13, , 
+rpl-23, , 
+rpl-24.2, , 
+rpl-27, , 
+rpl-29, , 
+rpl-30, , 
+rpl-33, , 
+rpl-36, , 
+rpl-41, , 
+rpl-6, , 
+rps-15, , 
+rps-17, , 
+rps-23, , 
+rps-27, , 
+rps-29, , 
+rps-30, , 
+rrn-2.1, , 
+sac-1, , 
+sar-1, , 
+set-32, , 
+snr-7, , 
+snx-6, , 
+spat-1, , 
+sqv-1, , 
+sqv-2, , 
+sqv-8, , 
+syx-18, , 
+taf-11.3, , 
+taf-13, , 
+tag-175, , 
+tag-277, , 
+tag-296, , 
+tag-321, , 
+tag-322, , 
+tdc-1, , 
+teg-1, , 
+tin-10, , 
+tin-13, , 
+tin-9.1, , 
+tomm-20, , 
+tomm-22, , 
+trap-2, , 
+trap-4, , 
+ubc-14, , 
+ubh-1, , 
+ubl-5, , 
+ubq-2, , 
+ucp-4, , 
+unc-101, , 
+unc-119, , 
+unc-60, , 
+vha-17, , 
+vha-4, , 
+vha-7, , 
+vha-9, , 
+vpr-1, , 
+vps-36, , 
+vps-37, , 
+xpa-1, , 
