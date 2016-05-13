@@ -139,13 +139,13 @@ def addmRNADataToTree(root):
 
 						# make sure the gene meets the RPKM threshold in at least one of the cells
 						if pc.getMedGeneRPKM(gene) > medRPKMThreshold or cc.getMedGeneRPKM(gene) > medRPKMThreshold:
-							dataEntry[gene] = -1 # use -1 to denote decrease on this gene from parent to child
+							dataEntry[gene] = [-1, logFC] # use -1 to denote decrease on this gene from parent to child
 
-					elif logFC < logFCThreshold: # the parent cell expresses this gene at a lower level than the child cell
+					elif logFC < -logFCThreshold: # the parent cell expresses this gene at a lower level than the child cell
 						geneIncreaseCounter += 1
 
 						if pc.getMedGeneRPKM(gene) > medRPKMThreshold or cc.getMedGeneRPKM(gene) > medRPKMThreshold:
-							dataEntry[gene] = 1 # use 1 to denote increase on this gene from parent to child
+							dataEntry[gene] = [1, logFC] # use 1 to denote increase on this gene from parent to child
 
 						# Using p-value
 					# if p_value <= p: # manually set p-value

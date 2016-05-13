@@ -2,8 +2,8 @@ import os
 
 comma = ","
 newline = "\n"
-headerLineIncr = "Left Cell Increase" + comma + "Shared Increase" + comma + "Right Cell Increase"
-headerLineDecr = "Left Cell Decrease" + comma + "Shared Decrease" + comma + "Right Cell Decrease"
+headerLineIncr = "Left Cell Increase; logFC" + comma + "Shared Increase; logFC (L) - logFC (R)" + comma + "Right Cell Increase; logFC"
+headerLineDecr = "Left Cell Decreasel; logFC" + comma + "Shared Decrease; logFC (L) - logFC (R)" + comma + "Right Cell Decrease; logFC"
 
 # Build Venn Diagrams for Pairwise Cell Comparison
 #
@@ -33,42 +33,54 @@ def makeVennDiagram(germlineParent, somaticChild, germlineChild, glpToglc_dict, 
 	rightCellDecr = []
 
 	for gene in glpToglc_dict:
-		valR = glpToglc_dict[gene]
+		valR = glpToglc_dict[gene][0]
+		logFCR = str(glpToglc_dict[gene][1])
 
 		if gene in glpTosc_dict.keys(): # the gene was statistically significant in the somatic cell too
-			valL = glpTosc_dict[gene]
+			valL = glpTosc_dict[gene][0]
+			logFCL = str(glpTosc_dict[gene][1])
 
 			if valR == valL: # both genes increased or decreased
 				# check if increase or decrease
 				if valR == 1:
-					sharedIncr.append(gene)
+					if gene not in sharedIncr:
+						sharedIncr.append(gene + "; " + logFCL + " - " + logFCR)
 				elif valR == -1:
-					sharedDecr.append(gene)
+					if gene not in sharedDecr:
+						sharedDecr.append(gene + "; " + logFCL + " - " + logFCR)
 				
 			elif valR > valL:
-				rightCellIncr.append(gene)
-				leftCellDecr.append(gene)
+				if gene not in rightCellIncr:
+					rightCellIncr.append(gene + "; " + logFCR)
+				if gene not in leftCellDecr:
+					leftCellDecr.append(gene + "; " + logFCL)
 				
 			elif valR < valL:
-				rightCellDecr.append(gene)
-				leftCellIncr.append(gene)
+				if gene not in rightCellDecr:
+					rightCellDecr.append(gene + "; " + logFCR)
+				if gene not in leftCellIncr:
+					leftCellIncr.append(gene + "; " + logFCL)
 
 		else: # the gene wasn't statistically significant in the somatic cell
 			if valR == 1:
-				rightCellIncr.append(gene)
+				if gene not in rightCellIncr:
+					rightCellIncr.append(gene + "; " + logFCR)
 				
 			elif valR == -1:
-				rightCellDecr.append(gene)
+				if gene not in rightCellDecr:
+					rightCellDecr.append(gene + "; " + logFCR)
 
 
 	for gene in glpTosc_dict:
 		valL = glpTosc_dict[gene]
+		logFCL = str(glpTosc_dict[gene][1])
 
-		if gene not in sharedIncr or gene not in sharedDecr:
-			if valL == 1:
-				leftCellIncr.append(gene)
-			elif valL == -1:
-				leftCellDecr.append(gene)
+		if valL == 1:
+			if gene not in sharedIncr and gene not in leftCellIncr:
+				leftCellIncr.append(gene + "; " + logFCL)
+		elif valL == -1:
+			if gene not in sharedDecr and gene not in leftCellDecr:
+				leftCellDecr.append(gene + "; " + logFCL)
 
 
 		# sort the lists
