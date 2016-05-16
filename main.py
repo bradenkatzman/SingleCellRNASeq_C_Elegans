@@ -20,10 +20,20 @@ data = {}
 
 # parameters
 p = "N/A"
-# p = 0.0100000000
+# p = 0.0500000000
 medRPKMThreshold = 25.
-logFCThreshold = 0.5
+logFCThreshold = 0.15
 CPM = -1 # not currently in use
+
+
+def printParams():
+	print "\nParameters:"
+
+	if p != "N/A":
+		print " - p-value = {p}".format(p=p)
+
+	print " - Median RPKM = {medRPKM}".format(medRPKM=medRPKMThreshold)
+	print " - log FC = {logFC}".format(logFC=logFCThreshold)
 
 
 def buildTree():
@@ -130,37 +140,38 @@ def addmRNADataToTree(root):
 				logCPM = float(geneDataTokens[2])
 				logFC = float(geneDataTokens[3])
 
+
 				pc = treeSearch.findCellInOrder(root, parentCell)
 				cc = treeSearch.findCellInOrder(root, childCell)
 
-				if pc != None:
-					if logFC > logFCThreshold: # the parent cell expresses this gene at a higher level than the child cell
-						geneDecreaseCounter += 1
+				if pc != None and cc != None:
+					if p == "N/A":
+						if logFC > logFCThreshold: # the parent cell expresses this gene at a higher level than the child cell
+							geneDecreaseCounter += 1
 
-						# make sure the gene meets the RPKM threshold in at least one of the cells
-						if pc.getMedGeneRPKM(gene) > medRPKMThreshold or cc.getMedGeneRPKM(gene) > medRPKMThreshold:
-							dataEntry[gene] = [-1, logFC] # use -1 to denote decrease on this gene from parent to child
+							# make sure the gene meets the RPKM threshold in at least one of the cells
+							if pc.getMedGeneRPKM(gene) > medRPKMThreshold or cc.getMedGeneRPKM(gene) > medRPKMThreshold:
+								dataEntry[gene] = [-1, logFC] # use -1 to denote decrease on this gene from parent to child
 
-					elif logFC < -logFCThreshold: # the parent cell expresses this gene at a lower level than the child cell
-						geneIncreaseCounter += 1
+						elif logFC < -logFCThreshold: # the parent cell expresses this gene at a lower level than the child cell
+							geneIncreaseCounter += 1
 
-						if pc.getMedGeneRPKM(gene) > medRPKMThreshold or cc.getMedGeneRPKM(gene) > medRPKMThreshold:
-							dataEntry[gene] = [1, logFC] # use 1 to denote increase on this gene from parent to child
+							if pc.getMedGeneRPKM(gene) > medRPKMThreshold or cc.getMedGeneRPKM(gene) > medRPKMThreshold:
+								dataEntry[gene] = [1, logFC] # use 1 to denote increase on this gene from parent to child
+					else: # Using p-value
+						if p_value <= p: # manually set p-value
+							if logFC > logFCThreshold: # the parent cell expresses this gene at a higher level than the child cell
+								geneDecreaseCounter += 1
 
-						# Using p-value
-					# if p_value <= p: # manually set p-value
-					# 	if logFC > logFCThreshold: # the parent cell expresses this gene at a higher level than the child cell
-					# 		geneDecreaseCounter += 1
+							# make sure the gene meets the RPKM threshold in at least one of the cells
+							if pc.getMedGeneRPKM(gene) > medRPKMThreshold or cc.getMedGeneRPKM(gene) > medRPKMThreshold:
+								dataEntry[gene] = [-1, logFC] # use -1 to denote decrease on this gene from parent to child
 
-					# 		# make sure the gene meets the RPKM threshold in at least one of the cells
-					# 		if pc.getMedGeneRPKM(gene) > medRPKMThreshold or cc.getMedGeneRPKM(gene) > medRPKMThreshold:
-					# 			dataEntry[gene] = -1 # use -1 to denote decrease on this gene from parent to child
+						elif logFC < -logFCThreshold: # the parent cell expresses this gene at a lower level than the child cell
+							geneIncreaseCounter += 1
 
-					# 	elif logFC < logFCThreshold: # the parent cell expresses this gene at a lower level than the child cell
-					# 		geneIncreaseCounter += 1
-
-					# 		if pc.getMedGeneRPKM(gene) > medRPKMThreshold or cc.getMedGeneRPKM(gene) > medRPKMThreshold:
-					# 			dataEntry[gene] = 1 # use 1 to denote increase on this gene from parent to child
+							if pc.getMedGeneRPKM(gene) > medRPKMThreshold or cc.getMedGeneRPKM(gene) > medRPKMThreshold:
+								dataEntry[gene] = [1, logFC] # use 1 to denote increase on this gene from parent to child
 
 
 		data[parentCell + dash + childCell] = dataEntry
@@ -226,6 +237,9 @@ if __name__ == '__main__':
 	t0 = time.clock()
 	print "start"
 
+	printParams()
+
+
 	P0_root = buildTree()
 
 	gatherRPKMData(P0_root)
@@ -233,11 +247,17 @@ if __name__ == '__main__':
 	# also writes the data to file
 	addmRNADataToTree(P0_root)
 
+	# venn diagrams of siblings
+	vennDiagram.makeVennDiagram("N/A", "AB", "P1", data["P1-AB"], None, p, medRPKMThreshold, logFCThreshold)
+	vennDiagram.makeVennDiagram("N/A", "EMS", "P2", data["P2-EMS"], None, p, medRPKMThreshold, logFCThreshold)
+	vennDiagram.makeVennDiagram("N/A", "C", "P3", data["P3-C"], None, p, medRPKMThreshold, logFCThreshold)
+	vennDiagram.makeVennDiagram("N/A", "D", "P4", data["P4-D"], None, p, medRPKMThreshold, logFCThreshold)
+
 	# make venn diagrams of the somatic to germline siblings
-	vennDiagram.makeVennDiagram("P0", "AB", "P1", data["P0-P1"], data["P0-AB"], p, medRPKMThreshold, logFCThreshold)
-	vennDiagram.makeVennDiagram("P1", "EMS", "P2", data["P1-P2"], data["P1-EMS"], p, medRPKMThreshold, logFCThreshold)
-	vennDiagram.makeVennDiagram("P2", "C", "P3", data["P2-P3"], data["P2-C"], p, medRPKMThreshold, logFCThreshold)
-	vennDiagram.makeVennDiagram("P3", "D", "P4", data["P3-P4"], data["P3-D"], p, medRPKMThreshold, logFCThreshold)
+	# vennDiagram.makeVennDiagram("P0", "AB", "P1", data["P0-P1"], data["P0-AB"], p, medRPKMThreshold, logFCThreshold)
+	# vennDiagram.makeVennDiagram("P1", "EMS", "P2", data["P1-P2"], data["P1-EMS"], p, medRPKMThreshold, logFCThreshold)
+	# vennDiagram.makeVennDiagram("P2", "C", "P3", data["P2-P3"], data["P2-C"], p, medRPKMThreshold, logFCThreshold)
+	# vennDiagram.makeVennDiagram("P3", "D", "P4", data["P3-P4"], data["P3-D"], p, medRPKMThreshold, logFCThreshold)
 
 	print "\nprogram execution: {t} seconds".format(t=time.clock()-t0)
 	print "exiting"
