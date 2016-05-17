@@ -19,10 +19,10 @@ dash = "-"
 data = {}
 
 # parameters
-# p = "N/A"
-p = 0.0100000000
+p = "N/A"
+# p = 0.1000000000
 medRPKMThreshold = 25.
-logFCThreshold = 0.5
+logFCThreshold = 0.2
 CPM = -1 # not currently in use
 
 
@@ -129,6 +129,7 @@ def addmRNADataToTree(root):
 
 		geneIncreaseCounter = 0
 		geneDecreaseCounter = 0
+		geneShareCounter = 0
 		with open(dirName + "/" + filename) as ins:
 			dataEntry = {}
 			
@@ -146,32 +147,45 @@ def addmRNADataToTree(root):
 
 				if pc != None and cc != None:
 					if p == "N/A":
-						if logFC > logFCThreshold: # the parent cell expresses this gene at a higher level than the child cell
+						if logFC >= logFCThreshold: # the parent cell expresses this gene at a higher level than the child cell
 							geneDecreaseCounter += 1
 
 							# make sure the gene meets the RPKM threshold in at least one of the cells
 							if pc.getMedGeneRPKM(gene) > medRPKMThreshold or cc.getMedGeneRPKM(gene) > medRPKMThreshold:
 								dataEntry[gene] = [-1, logFC] # use -1 to denote decrease on this gene from parent to child
 
-						elif logFC < -logFCThreshold: # the parent cell expresses this gene at a lower level than the child cell
+						elif logFC <= -logFCThreshold: # the parent cell expresses this gene at a lower level than the child cell
 							geneIncreaseCounter += 1
 
 							if pc.getMedGeneRPKM(gene) > medRPKMThreshold or cc.getMedGeneRPKM(gene) > medRPKMThreshold:
 								dataEntry[gene] = [1, logFC] # use 1 to denote increase on this gene from parent to child
+
+						elif logFC < logFCThreshold and logFC > -logFCThreshold:
+							geneShareCounter += 1
+
+							if pc.getMedGeneRPKM(gene) > medRPKMThreshold or cc.getMedGeneRPKM(gene) > medRPKMThreshold:
+								dataEntry[gene] = [0, logFC]
+
 					else: # Using p-value
 						if p_value <= p: # manually set p-value
-							if logFC > logFCThreshold: # the parent cell expresses this gene at a higher level than the child cell
+							if logFC >= logFCThreshold: # the parent cell expresses this gene at a higher level than the child cell
 								geneDecreaseCounter += 1
 
 								# make sure the gene meets the RPKM threshold in at least one of the cells
 								if pc.getMedGeneRPKM(gene) > medRPKMThreshold or cc.getMedGeneRPKM(gene) > medRPKMThreshold:
 									dataEntry[gene] = [-1, logFC] # use -1 to denote decrease on this gene from parent to child
 
-						elif logFC < -logFCThreshold: # the parent cell expresses this gene at a lower level than the child cell
-							geneIncreaseCounter += 1
+							elif logFC <= -logFCThreshold: # the parent cell expresses this gene at a lower level than the child cell
+								geneIncreaseCounter += 1
 
-							if pc.getMedGeneRPKM(gene) > medRPKMThreshold or cc.getMedGeneRPKM(gene) > medRPKMThreshold:
-								dataEntry[gene] = [1, logFC] # use 1 to denote increase on this gene from parent to child
+								if pc.getMedGeneRPKM(gene) > medRPKMThreshold or cc.getMedGeneRPKM(gene) > medRPKMThreshold:
+									dataEntry[gene] = [1, logFC] # use 1 to denote increase on this gene from parent to child
+
+							elif logFC < logFCThreshold and logFC > -logFCThreshold:
+								geneShareCounter += 1
+
+								if pc.getMedGeneRPKM(gene) > medRPKMThreshold or cc.getMedGeneRPKM(gene) > medRPKMThreshold:
+									dataEntry[gene] = [0, logFC]
 
 		data[parentCell + dash + childCell] = dataEntry
 
@@ -183,8 +197,8 @@ def addmRNADataToTree(root):
 			totalNumIncreases += 1
 
 		# print the results
-		print "{pc} - {cc}	{geneIncr}	{geneDecr}	{diff}".format(pc=parentCell, cc=childCell, 
-			geneIncr=geneIncreaseCounter, geneDecr=geneDecreaseCounter, diff=diff)
+		print "{pc} - {cc}	{geneIncr}	{geneDecr}	{diff}, {shared}".format(pc=parentCell, cc=childCell, 
+			geneIncr=geneIncreaseCounter, geneDecr=geneDecreaseCounter, diff=diff, shared=geneShareCounter)
 
 		result = [parentCell + " - " + childCell, geneIncreaseCounter, geneDecreaseCounter, diff]
 		results.append(result)

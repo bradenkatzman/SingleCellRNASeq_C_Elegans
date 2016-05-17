@@ -5,7 +5,7 @@ newline = "\n"
 headerLineIncr = "Left Cell Increase; logFC" + comma + "Shared Increase; logFC (L) - logFC (R)" + comma + "Right Cell Increase; logFC"
 headerLineDecr = "Left Cell Decrease; logFC" + comma + "Shared Decrease; logFC (L) - logFC (R)" + comma + "Right Cell Decrease; logFC"
 
-headerLine = "Left Cell Higher; logFC" + comma + "Same Level; logFC" + comma + "Right Cell Higher; logFC"
+headerLine = "Left Cell Higher; logFC" + comma + "~Same Level; logFC" + comma + "Right Cell Higher; logFC"
 
 # Build Venn Diagrams for Pairwise Cell Comparison
 #
@@ -54,6 +54,9 @@ def makeVennDiagram(germlineParent, somaticChild, germlineChild, glpToglc_dict, 
 
 		writeVennDiagramToFile1(title, criteria, leftCellHigher, shared, rightCellHigher)
 		return
+
+	# TO DO
+	#	- make shared section
 
 	else:
 		print "\nBuilding Venn Diagrams for siblings: germline cell {glc} and somatic cell {sc} from germline parent {glp} ".format(
